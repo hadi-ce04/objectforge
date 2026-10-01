@@ -141,7 +141,7 @@ For a real reconstruction pipeline, capture the object from approximately 8–12
 - Three.js
 - WebGPU roadmap
 
-## Why I built this
+## Why I built this?
 
 The project explores the boundary between computer vision and interactive graphics: taking something captured by a camera, converting it into a spatial representation, and making that representation useful in a browser.
 
