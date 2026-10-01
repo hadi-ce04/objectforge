@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ObjectForge | Multi-View 3D Reconstruction</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">OBJECT<span>FORGE</span></div>
+    <div class="status"><i></i> LOCAL RECONSTRUCTION ENGINE</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">COMPUTER VISION · SPATIAL COMPUTING · WEBGPU</p>
+        <h1>Turn multiple views<br>into a <span>3D object.</span></h1>
+        <p class="sub">
+          A local-first prototype for multi-angle image capture, point-cloud
+          reconstruction, voxelization, and real-time browser visualization.
+        </p>
+      </div>
+      <div class="pipeline">
+        <div>CAPTURE</div><b>→</b><div>POSE</div><b>→</b><div>POINTS</div><b>→</b><div>VOXELS</div>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <aside class="panel capture">
+        <div class="panel-title">
+          <span>01 / MULTI-VIEW INPUT</span>
+          <span id="count">0 / 12</span>
+        </div>
+        <div id="dropzone" class="dropzone">
+          <div class="camera">＋</div>
+          <strong>Drop snapshots here</strong>
+          <span>JPG, PNG, WEBP · up to 12 views</span>
+          <input id="files" type="file" accept="image/*" multiple hidden>
+          <button id="browse">SELECT IMAGES</button>
+        </div>
+        <div id="thumbs" class="thumbs"></div>
+        <button id="reconstruct" class="primary" disabled>RECONSTRUCT OBJECT</button>
+        <div id="message" class="message">Add at least 3 angles to begin.</div>
+      </aside>
+
+      <section class="panel viewer">
+        <div class="panel-title">
+          <span>02 / RECONSTRUCTION VIEWPORT</span>
+          <span id="fps">60 FPS</span>
+        </div>
+        <div id="scene"></div>
+        <div class="controls">
+          <span>DRAG TO ORBIT</span>
+          <span>SCROLL TO ZOOM</span>
+          <span id="mode">VOXEL MODE</span>
+        </div>
+      </section>
+
+      <aside class="panel metrics">
+        <div class="panel-title">03 / PIPELINE METRICS</div>
+        <div class="metric"><span>INPUT VIEWS</span><b id="mViews">0</b></div>
+        <div class="metric"><span>POINTS</span><b id="mPoints">4,200</b></div>
+        <div class="metric"><span>VOXEL GRID</span><b>28³</b></div>
+        <div class="metric"><span>RECONSTRUCTION</span><b id="mStatus">IDLE</b></div>
+        <div class="metric"><span>RENDERER</span><b>THREE.JS</b></div>
+        <div class="metric"><span>LOCAL API</span><b id="api">CHECKING</b></div>
+        <div class="tech">
+          <span>PIPELINE</span>
+          <p>Multi-view capture</p>
+          <p>Feature correspondence</p>
+          <p>Camera pose estimation</p>
+          <p>Point-cloud fusion</p>
+          <p>Voxel occupancy</p>
+          <p>WebGL visualization</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>
